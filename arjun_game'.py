@@ -1,32 +1,27 @@
-import tkinter as tk
-from tkinter import messagebox
+import random
 
-def
-check winner (): for combo in [[0,1,2],
-[3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,81, [2,4,6]]:
-if buttons[combo[g]]["text"] == buttons[combo [1]] ["text"] == buttons [combo [2]]["text"] |="*:
-buttons [combo [011. config(bg="green") buttons [combo [1]] - config(bg="green") buttons [combo [211 -config(bg="green")
-messagebox. showinfo ("Tic-Tac-Toe", f"Player (buttons [combo[0]][ 'text ']) wins!") root-quit()
-def button_click(index):
-if buttons [index]["text"] == "™ and not winner:
-buttons [index]["text"] = current player
-check winner()
-toggle_player ()
-TI
-def
-toggle_player ():
-global current_ player
-current player = "x" if current_player == "0" else "0"
-label.config(text=f"Player {current_player)'s turn")
-root = tk. Tk()
-root. title"Tic-Tac-Toe")
-buttons = [tk. Button(root, text="", font=("normal", 25), width=6, height=2, command=lambda i=i: button_click(i))for i in range (9)]
-for i, button in enumerate(buttons) :
-button-grid(row=i //3, column=i % 3)
-current_player = "X"
-winner = False
-label = tk. Label(root, text=f"Player {current_player)'s turn", font=("normal", 16))
-label grid(row=3,
-column=0, columnspan=3)
+def dice_game():
+    """Simulates a dice game between player and computer."""
+    player_score = 0
+    computer_score = 0
+    for _ in range(3):  # Play 3 rounds
+        player_roll = random.randint(1, 6)
+        computer_roll = random.randint(1, 6)
+        print(f"Player rolled: {player_roll}, Computer rolled: {computer_roll}")
+        if player_roll > computer_roll:
+            player_score += 1
+            print("Player wins this round!")
+        elif computer_roll > player_roll:
+            computer_score += 1
+            print("Computer wins this round!")
+        else:
+            print("It's a tie!")
+    print(f"Final scores: Player {player_score}, Computer {computer_score}")
+    if player_score > computer_score:
+        print("Player wins the game!")
+    elif computer_score > player_score:
+        print("Computer wins the game!")
+    else:
+        print("It's a tie game!")
 
-root.mainloop()
+dice_game()
